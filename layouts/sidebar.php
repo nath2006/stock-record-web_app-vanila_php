@@ -15,13 +15,21 @@ $current_page = basename($_SERVER['PHP_SELF']);
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Stock Barang
                 </a>
+                <a class="nav-link <?= ($current_page == 'identitas_usaha.php') ? 'active' : ''; ?>" href="identitas_usaha.php">
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-handshake"></i></div>
+                    Identitas Usaha
+                </a>
+                <a class="nav-link <?= ($current_page == 'customer.php') ? 'active' : ''; ?>" href="customer.php">
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-handshake"></i></div>
+                    Customer
+                </a>
                 <a class="nav-link <?= ($current_page == 'pembelian.php') ? 'active' : ''; ?>" href="pembelian.php">
                     <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-inbox"></i></div>
                     Pembelian Barang 
                 </a>
-                <a class="nav-link <?= ($current_page == 'identitas_usaha.php') ? 'active' : ''; ?>" href="identitas_usaha.php">
-                    <div class="sb-nav-link-icon"><i class="fa-solid fa-handshake"></i></div>
-                    Identitas Usaha
+                <a class="nav-link <?= ($current_page == 'penjualan.php') ? 'active' : ''; ?>" href="penjualan.php">
+                    <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-inbox"></i></div>
+                    Penjualan Barang
                 </a>
                 <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">

@@ -36,6 +36,15 @@ CREATE TABLE penjualan (
     id INT AUTO_INCREMENT PRIMARY KEY,
     id_barang INT,
     jumlah INT,
+    id_customer INT,
     tanggal TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (id_barang) REFERENCES stok_barang(id)
+    FOREIGN KEY (id_barang) REFERENCES stok_barang(id),
+    FOREIGN KEY (id_customer) REFERENCES customer(id)
+);
+
+CREATE TABLE customer (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nama VARCHAR(255) NOT NULL,
+    nomor_telepon VARCHAR(50) NOT NULL,
+    alamat TEXT NOT NULL
 );
