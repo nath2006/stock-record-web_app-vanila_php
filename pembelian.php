@@ -131,16 +131,15 @@ $barang_result = mysqli_query($koneksi, "SELECT * FROM stok_barang");
                                 <tbody>
                                     <?php while ($row = mysqli_fetch_assoc($pembelian_result)): ?>
                                         <tr>
-                                            <td><?= htmlspecialchars($row['tanggal']); ?></td> <!-- Display tanggal -->
+                                            <td><?= htmlspecialchars($row['tanggal']); ?></td>
                                             <td><?= htmlspecialchars($row['nama_barang']); ?></td>
                                             <td><?= htmlspecialchars($row['jumlah']); ?></td>
                                             <td>
                                                 <button class="btn btn-warning btn-sm" onclick="editData(<?= $row['id']; ?>, <?= $row['id_barang']; ?>, <?= $row['jumlah']; ?>)">Edit</button>
                                                 <a href="?delete=<?= $row['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
-                                                <button type="button" class="btn btn-primary btn-sm" onclick="lihatData('<?= htmlspecialchars($row['tanggalPembelian']); ?>', '<?= htmlspecialchars($row['kategoriBarang']); ?>', <?= $row['jumlahPembelian']; ?>)">
+                                                <button type="button" class="btn btn-primary btn-sm" onclick="lihatData('<?= htmlspecialchars($row['tanggal']) ?? ''; ?>', '<?= htmlspecialchars($row['kategori']) ?? ''; ?>', '<?= htmlspecialchars($row['jumlah']) ?? ''; ?>')">
                                                     Lihat Data
                                                 </button>
-
                                             </td>
                                         </tr>
                                     <?php endwhile; ?>

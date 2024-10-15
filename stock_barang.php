@@ -102,6 +102,7 @@ $result = mysqli_query($koneksi, "SELECT * FROM stok_barang");
             <main>
                 <div class="container-fluid px-4">
                     <h1 class="mt-4">Stock Barang</h1>
+                    <br>
                     <div class="card mb-4">
                         <div class="card-header">
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">

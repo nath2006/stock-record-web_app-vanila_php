@@ -164,40 +164,4 @@ $countDataBarang = mysqli_fetch_assoc($resultDataBarang)['total'];
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
     </body>
-
-    <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h1 class="modal-title fs-5" id="staticBackdropLabel">Tambah Barang</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <form enctype="multipart/form-data" method="post">
-            <div class="modal-body">
-                <div class="mb-3">
-                    <label for="nim" class="form-label">Nama Barang</label>
-                    <input type="text" class="form-control" name="namabarang" id="namabarang" placeholder="masukkan nama barang" required>
-                </div>
-                <div class="mb-3">
-                    <label for="nama" class="form-label">Deskripsi</label>
-                    <input type="text" class="form-control" name="deskripsi" id="deskripsi" placeholder="masukkan deskripsi barang" required>
-                </div>
-                <div class="mb-3">
-                    <label for="nama" class="form-label">Stock</label>
-                    <input type="number" class="form-control" name="stock" id="stock" required>
-                </div>
-                <div class="mb-3">
-                    <label for="gambar" class="form-label">Gambar</label>
-                    <input type="file" class="form-control" name="gambar" id="gambar" required>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Keluar</button>
-                <button type="submit" class="btn btn-primary" name="addnewbarang">Simpan</button>
-            </div>
-        </form>
-        </div>
-    </div>
-    </div>
 </html>
