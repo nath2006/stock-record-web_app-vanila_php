@@ -166,6 +166,7 @@ $barang_result = mysqli_query($koneksi, "SELECT * FROM stok_barang");
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
 
+
 <!-- Modal View-->
 <div class="modal fade " id="modalLihatData" tabindex="-1" aria-labelledby="modalLihatDataLabel" aria-hidden="true">
     <div class="modal-dialog modal-fullscreen">
