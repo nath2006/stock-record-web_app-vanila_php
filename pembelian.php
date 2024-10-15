@@ -32,8 +32,7 @@ if (isset($_GET['delete'])) {
     mysqli_query($koneksi, "DELETE FROM pembelian WHERE id='$id'");
 }
 
-// Ambil data pembelian
-$pembelian_result = mysqli_query($koneksi, "SELECT p.*, sb.nama_barang FROM pembelian p JOIN stok_barang sb ON p.id_barang = sb.id");
+$pembelian_result = mysqli_query($koneksi, "SELECT p.*, sb.nama_barang, sb.kategori, sb.stok FROM pembelian p JOIN stok_barang sb ON p.id_barang = sb.id");
 
 // Ambil data barang untuk dropdown
 $barang_result = mysqli_query($koneksi, "SELECT * FROM stok_barang");
@@ -117,7 +116,7 @@ $barang_result = mysqli_query($koneksi, "SELECT * FROM stok_barang");
                     <div class="card mb-4">
                         <div class="card-header">
                             <h5>Data Pembelian</h5>
-                            <a href="cetak_pembelian.php" class="btn btn-primary">Cetak PDF</a>
+                            <a href="cetak_pembelian.php" target="_blank" class="btn btn-primary">Cetak PDF</a>
                         </div>
                         <div class="card-body">
                             <table class="table table-bordered">
@@ -138,7 +137,10 @@ $barang_result = mysqli_query($koneksi, "SELECT * FROM stok_barang");
                                             <td>
                                                 <button class="btn btn-warning btn-sm" onclick="editData(<?= $row['id']; ?>, <?= $row['id_barang']; ?>, <?= $row['jumlah']; ?>)">Edit</button>
                                                 <a href="?delete=<?= $row['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
-                                                <a href="cetak_pembelian.php" class="btn btn-primary btn-sm" target="_blank">Cetak PDF</a>
+                                                <button type="button" class="btn btn-primary btn-sm" onclick="lihatData('<?= htmlspecialchars($row['tanggalPembelian']); ?>', '<?= htmlspecialchars($row['kategoriBarang']); ?>', <?= $row['jumlahPembelian']; ?>)">
+                                                    Lihat Data
+                                                </button>
+
                                             </td>
                                         </tr>
                                     <?php endwhile; ?>
@@ -164,6 +166,36 @@ $barang_result = mysqli_query($koneksi, "SELECT * FROM stok_barang");
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
+
+<!-- Modal View-->
+<div class="modal fade " id="modalLihatData" tabindex="-1" aria-labelledby="modalLihatDataLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header ">
+                <h5 class="modal-title" id="modalLihatDataLabel">Detail Pemebelian Barang</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="lihatNamaBarang" class="form-label">Tanggal Pembelian</label>
+                    <input type="text" class="form-control" id="tanggalPembelian" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="lihatKategori" class="form-label">Kategori Barang</label>
+                    <input type="text" class="form-control" id="lihatKategori" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="lihatStok" class="form-label">Jumlah Pembelian Barang</label>
+                    <input type="text" class="form-control" id="lihatPembelianBarang" readonly>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal View End-->
 
     <!-- Modal Edit -->
     <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
@@ -210,6 +242,15 @@ $barang_result = mysqli_query($koneksi, "SELECT * FROM stok_barang");
             });
             myModal.show();
         }
+        function lihatData(tanggalPembelian, kategoriBarang, jumlahPembelian) {
+            document.getElementById('tanggalPembelian').value = tanggalPembelian;
+            document.getElementById('lihatKategori').value = kategoriBarang;
+            document.getElementById('lihatPembelianBarang').value = jumlahPembelian;
+
+            var modalLihatData = new bootstrap.Modal(document.getElementById('modalLihatData'));
+            modalLihatData.show();
+        }
+
     </script>
 </body>
 </html>

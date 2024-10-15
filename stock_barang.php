@@ -32,7 +32,6 @@ if (isset($_POST['save_data_barang'])) {
 }
 
 // Apus Data
-// Apus Data
 if (isset($_GET['delete'])) {
     $id = $_GET['delete'];
 
@@ -203,7 +202,6 @@ $result = mysqli_query($koneksi, "SELECT * FROM stok_barang");
         </div>
     </div>
 </div>
-
 <!-- Modal View End-->
 
  <!-- Modal -->
@@ -278,8 +276,8 @@ function confirmDelete(id) {
         text: "Data yang dihapus tidak dapat dikembalikan!",
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
         confirmButtonText: 'Ya, Hapus!',
         cancelButtonText: 'Batal'
     }).then((result) => {
