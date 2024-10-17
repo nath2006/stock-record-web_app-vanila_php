@@ -48,3 +48,9 @@ CREATE TABLE customer (
     nomor_telepon VARCHAR(50) NOT NULL,
     alamat TEXT NOT NULL
 );
+
+CREATE TABLE user_settings (
+    user_id INT PRIMARY KEY,
+    locale VARCHAR(10) NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+)

@@ -1,7 +1,6 @@
 <?php
-include 'koneksi.php';
+include 'data/koneksi.php';
 session_start();
-include 'koneksi.php';
 
 
 if (isset($_SESSION['error_message'])) {

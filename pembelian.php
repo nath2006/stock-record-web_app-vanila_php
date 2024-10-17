@@ -1,5 +1,5 @@
 <?php
-include 'koneksi.php';
+include 'data/koneksi.php';
 session_start();
 
 if (!isset($_SESSION['login'])) {
@@ -99,8 +99,12 @@ $barang_result = mysqli_query($koneksi, "SELECT * FROM stok_barang");
                                                     <td><?= htmlspecialchars($row['nama_barang']); ?></td>
                                                     <td><?= htmlspecialchars($row['jumlah']); ?></td>
                                                     <td>
-                                                        <button class="btn btn-warning btn-sm" onclick="editData(<?= $row['id']; ?>, <?= $row['id_barang']; ?>, <?= $row['jumlah']; ?>)">Edit</button>
-                                                        <a href="?delete=<?= $row['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
+                                                        <button class="btn btn-warning btn-sm" onclick="editData(<?= $row['id']; ?>, <?= $row['id_barang']; ?>, <?= $row['jumlah']; ?>)">
+                                                            Edit Data
+                                                        </button>
+                                                        <a href="?delete=<?= $row['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item?');">
+                                                            Delete Data
+                                                        </a>
                                                         <button type="button" class="btn btn-primary btn-sm" onclick="lihatData('<?= htmlspecialchars($row['tanggal']) ?? ''; ?>', '<?= htmlspecialchars($row['kategori']) ?? ''; ?>', '<?= htmlspecialchars($row['jumlah']) ?? ''; ?>')">
                                                             Lihat Data
                                                         </button>

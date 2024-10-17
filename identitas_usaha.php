@@ -1,5 +1,5 @@
 <?php
-include 'koneksi.php';
+include 'data/koneksi.php';
 session_start();
 
 if (!isset($_SESSION['login'])) {
@@ -27,7 +27,7 @@ $result = mysqli_query($koneksi, "SELECT * FROM identitas_usaha");
 <!DOCTYPE html>
 <html lang="en">
 <?php 
-                $pageTitle = "Identitas Usaha";
+                $pageTitle = "Data Supplier";
                 require_once __DIR__ . "/layouts/head.php"; 
     ?>
 <body class="sb-nav-fixed">
@@ -37,7 +37,7 @@ $result = mysqli_query($koneksi, "SELECT * FROM identitas_usaha");
                 <div id="layoutSidenav_content">
                     <main>
                         <div class="container-fluid px-4">
-                            <h1 class="mt-4">Identitas Usaha</h1>
+                            <h1 class="mt-4">Data Supplier</h1>
                             <br>
                             <div class="card mb-4">
                                 <div class="card-header">

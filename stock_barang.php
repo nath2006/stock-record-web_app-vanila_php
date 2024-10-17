@@ -1,10 +1,21 @@
 <?php
-include 'koneksi.php';
+include 'data/koneksi.php';
 session_start();
 
 if (!isset($_SESSION['login'])) {
     header("Location: login.php");
     exit;
+}
+
+$user_id = $_SESSION['user_id'];
+$query = "SELECT locale FROM user_settings WHERE user_id = '$user_id'";
+$result = mysqli_query($koneksi, $query);
+
+if ($result && mysqli_num_rows($result) > 0) {
+    $user_data = mysqli_fetch_assoc($result);
+    $locale = $user_data['locale'];
+} else {
+    $locale = 'idn';
 }
 
 if (isset($_POST['save_data_barang'])) {
@@ -90,11 +101,19 @@ $result = mysqli_query($koneksi, "SELECT * FROM stok_barang");
                                                 <td><?= htmlspecialchars($row['nama_barang']); ?></td>
                                                 <td><?= htmlspecialchars($row['kategori']); ?></td>
                                                 <td><?= htmlspecialchars($row['stok']); ?></td>
-                                                <td><?= htmlspecialchars($row['harga']); ?></td>
+                                                <td>
+                                                    <?php 
+                                                        if ($locale === 'idn') {
+                                                            echo 'Rp ' . number_format($row['harga'], 0, ',', '.');
+                                                        } else {
+                                                            echo '$' . number_format($row['harga'], 2, '.', ',');
+                                                        }
+                                                    ?>
+                                                </td>
                                                 <td><img src="images/<?= htmlspecialchars($row['foto']); ?>" width="100"></td>
                                                 <td>
-                                                    <button class="btn btn-warning btn-sm" onclick="editData(<?= $row['id']; ?>, '<?= htmlspecialchars($row['nama_barang']); ?>', '<?= htmlspecialchars($row['kategori']); ?>', <?= $row['stok']; ?>, <?= $row['harga']; ?>, '<?= htmlspecialchars($row['foto']); ?>')">Edit</button>
-                                                    <a href="#" class="btn btn-danger btn-sm" onclick="confirmDelete(<?= $row['id']; ?>)">Delete</a>
+                                                    <button class="btn btn-warning btn-sm" onclick="editData(<?= $row['id']; ?>, '<?= htmlspecialchars($row['nama_barang']); ?>', '<?= htmlspecialchars($row['kategori']); ?>', <?= $row['stok']; ?>, <?= $row['harga']; ?>, '<?= htmlspecialchars($row['foto']); ?>')">Edit Data</button>
+                                                    <a href="#" class="btn btn-danger btn-sm" onclick="confirmDelete(<?= $row['id']; ?>)">Delete Data</a>
                                                     <button type="button" class="btn btn-primary btn-sm" onclick="lihatData('<?= htmlspecialchars($row['nama_barang']); ?>', '<?= htmlspecialchars($row['kategori']); ?>', <?= $row['stok']; ?>, <?= $row['harga']; ?>, '<?= htmlspecialchars($row['foto']); ?>')">
                                                         Lihat Data
                                                     </button>
@@ -218,6 +237,7 @@ $result = mysqli_query($koneksi, "SELECT * FROM stok_barang");
     var modal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
     modal.show();
 }
+
 function confirmDelete(id) {
     Swal.fire({
         title: 'Apakah Anda yakin?',

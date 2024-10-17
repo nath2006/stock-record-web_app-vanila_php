@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // Sertakan koneksi database
-include 'koneksi.php';
+include 'data/koneksi.php';
 
 // Sertakan TCPDF
 require_once('modules/tcpdf/tcpdf.php');

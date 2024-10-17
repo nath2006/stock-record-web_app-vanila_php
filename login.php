@@ -1,26 +1,27 @@
 <?php
 session_start();
-include 'koneksi.php';
+include 'data/koneksi.php';
+
 if (isset($_POST["login"])) {
     $username = $_POST["username"];
     $password = $_POST["password"];
     $result = mysqli_query($koneksi, "SELECT * FROM users WHERE username = '$username'");
+
     if (mysqli_num_rows($result) === 1) {
         $row = mysqli_fetch_assoc($result);
         if ($password === $row["password"]) {
             $_SESSION["login"] = true;
+            $_SESSION["user_id"] = $row["id"]; // Store user_id in session
             $_SESSION["username"] = $row["username"];
-            $_SESSION["fullname"] = $row["fullname"];
             header("Location: index.php");
             exit;
         } else {
-            echo "Password Salah";
+            echo "Usernama atau Password Salah";
         }
-    } else {
-        echo "Username tidak ditemukan";
     }
 }
 ?>
+
 <!doctype html>
 <html lang="en">
     <head>
