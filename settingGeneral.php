@@ -7,7 +7,7 @@ if (!isset($_SESSION['login'])) {
     exit;
 }
 
-// Proses form
+// Simpan data Currency
 if (isset($_POST['save'])) {
     $userId = $_SESSION['user_id']; 
     $locale = $_POST['id_barang'];
@@ -32,14 +32,14 @@ if (isset($_POST['save'])) {
     $stmt->close();
     echo "<script>alert('Pengaturan berhasil disimpan.');</script>";
 }
-?>
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
-<?php 
-    $pageTitle = "Pengaturan Umum";
-    require_once __DIR__ . "/layouts/head.php"; 
+<?php
+$pageTitle = "Pengaturan Umum";
+require_once __DIR__ . "/layouts/head.php";
 ?>
 <body class="sb-nav-fixed">
     <?php require_once __DIR__ . "/layouts/navbar.php"?>
@@ -64,14 +64,26 @@ if (isset($_POST['save'])) {
                                     </select>
                                 </div>
                                 <button type="submit" class="btn btn-primary" name="save">Simpan</button>
+                                <!-- <button type="submit" class="btn btn-secondary" name="backup">Backup Database</button> -->
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h5>Backup Database</h5>
+                        </div>
+                        <div class="card-body">
+                            <form method="post" action="backupData.php">
+                                <button type="submit" class="btn btn-secondary" name="backup">Backup Database</button>
                             </form>
                         </div>
                     </div>
                 </div>
             </main>
-            <?php require_once __DIR__ ."/layouts/footer.php"; ?>  
+            <?php require_once __DIR__ . "/layouts/footer.php"; ?>
         </div>
     </div>
-    <?php require_once __DIR__ ."/layouts/script.php"; ?>
+    <?php require_once __DIR__ . "/layouts/script.php"; ?>
 </body>
 </html>
+

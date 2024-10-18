@@ -16,7 +16,8 @@ if (isset($_POST["login"])) {
             header("Location: index.php");
             exit;
         } else {
-            echo "Usernama atau Password Salah";
+            header("location:login.php?message=NIP atau Password salah!");
+            exit;
         }
     }
 }
@@ -40,6 +41,14 @@ if (isset($_POST["login"])) {
                             <div class="card-body p-5 text-center">
                                 <div class="mb-md-5 mt-md-4 pb-5">
                                     <h2 class="fw-bold mb-2 text-uppercase">Login Halaman</h2>
+                                    <?php
+                                        if (isset($_GET['message'])) {
+                                            $msg = $_GET['message'];
+                                            echo "
+                                            <p class='text-white-50 mb-5'>$msg</p>
+                                            ";
+                                        }
+                                        ?>
                                     <p class="text-white-50 mb-5">Silakan masukan Username dan Password anda!</p>
                                     <form action="" method="POST">
                                         <div class="form-outline form-white mb-4">
