@@ -1,5 +1,5 @@
 <?php 
-$koneksi = mysqli_connect("localhost","root","","toko_elektronik");
+include 'koneksi.php';
  
 $tables = array();
 $result = mysqli_query($koneksi, "SHOW TABLES");

@@ -68,17 +68,35 @@ require_once __DIR__ . "/layouts/head.php";
                             </form>
                         </div>
                     </div>
-                    <div class="card mb-4">
+                </div>
+                <div class="row px-4">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        <div class="card bg-primary text-white d-flex flex-column h-100">
                         <div class="card-header">
-                            <h5>Backup Database</h5>
+                            <h5 class="card-title">Backup Database</h5>
                         </div>
-                        <div class="card-body">
-                            <form method="post" action="backupData.php">
-                                <button type="submit" class="btn btn-secondary" name="backup">Backup Database</button>
+                        <div class="card-body d-flex flex-column">
+                            <p>Lakukan backup database secara berkala untuk membuat cadangan yang dapat dipulihkan kapan saja saat dibutuhkan.</p>
+                            <form method="post" action="data/backupData.php" class="mt-auto">
+                            <button type="submit" class="btn btn-outline-light text-white" id="text-backup-data" name="backup">Backup Database</button>
                             </form>
                         </div>
+                        </div>
                     </div>
-                </div>
+                    <div class="col-sm-6">
+                        <div class="card bg-primary text-white d-flex flex-column h-100">
+                        <div class="card-header">
+                            <h5 class="card-title">Restore Database</h5>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <p>Apabila diperlukan maka data yang sudah dibackup dapat dipakai untuk melakukan restorasi database untuk kembali ke kondisi yang sama pada saat dilakukan backup sebelumnya. </p>
+                            <form method="post" action="restoreData.php" class="mt-auto">
+                            <button type="submit" class="btn btn-outline-light text-white" id="text-backup-data" name="backup">Restore Database</button>
+                            </form>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
             </main>
             <?php require_once __DIR__ . "/layouts/footer.php"; ?>
         </div>

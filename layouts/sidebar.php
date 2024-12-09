@@ -1,7 +1,6 @@
 <?php
 $current_page = basename($_SERVER['PHP_SELF']);
 ?>
-</style>
 <div id="layoutSidenav_nav">
     <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
         <div class="sb-sidenav-menu">
@@ -21,7 +20,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
                     Pembelian Barang 
                 </a>
                 <a class="nav-link <?= ($current_page == 'penjualan.php') ? 'active' : ''; ?>" href="penjualan.php">
-                    <div class="sb-nav-link-icon"><i class="fa-solid fa-cash-register"></i></i></div>
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-cash-register"></i></div>
                     Penjualan Barang
                 </a>
                 <div class="sb-sidenav-menu-heading">Customer</div>
@@ -30,7 +29,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
                     Data Customer
                 </a>
                 <div class="sb-sidenav-menu-heading">Supplier</div>
-                <a class="nav-link <?= ($current_page == 'identitas_usaha.php') ? 'active' : ''; ?>" href="identitas_usaha.php">
+                <a class="nav-link <?= ($current_page == 'data_suplier.php') ? 'active' : ''; ?>" href="data_suplier.php">
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-handshake"></i></div>
                     Data Supplier
                 </a>
@@ -38,6 +37,10 @@ $current_page = basename($_SERVER['PHP_SELF']);
                 <a class="nav-link <?= ($current_page == 'settingGeneral.php') ? 'active' : ''; ?>" href="settingGeneral.php">
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-gear"></i></div>
                     Pengaturan
+                </a>
+                <a class="nav-link <?= ($current_page == 'identitas_usaha.php') ? 'active' : ''; ?>" href="identitas_usaha.php">
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-address-card"></i></div>
+                    Identitas
                 </a>
             </div>
         </div>

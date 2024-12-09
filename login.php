@@ -11,12 +11,12 @@ if (isset($_POST["login"])) {
         $row = mysqli_fetch_assoc($result);
         if ($password === $row["password"]) {
             $_SESSION["login"] = true;
-            $_SESSION["user_id"] = $row["id"]; // Store user_id in session
+            $_SESSION["user_id"] = $row["id"]; 
             $_SESSION["username"] = $row["username"];
             header("Location: index.php");
             exit;
         } else {
-            header("location:login.php?message=NIP atau Password salah!");
+            header("location:login.php?message=Username atau Password salah!");
             exit;
         }
     }
