@@ -112,11 +112,13 @@ $result = mysqli_query($koneksi, "SELECT * FROM stok_barang");
                                                 </td>
                                                 <td><img src="images/<?= htmlspecialchars($row['foto']); ?>" width="100"></td>
                                                 <td>
-                                                    <button class="btn btn-warning btn-sm" onclick="editData(<?= $row['id']; ?>, '<?= htmlspecialchars($row['nama_barang']); ?>', '<?= htmlspecialchars($row['kategori']); ?>', <?= $row['stok']; ?>, <?= $row['harga']; ?>, '<?= htmlspecialchars($row['foto']); ?>')">Edit Data</button>
-                                                    <a href="#" class="btn btn-danger btn-sm" onclick="confirmDelete(<?= $row['id']; ?>)">Delete Data</a>
-                                                    <button type="button" class="btn btn-primary btn-sm" onclick="lihatData('<?= htmlspecialchars($row['nama_barang']); ?>', '<?= htmlspecialchars($row['kategori']); ?>', <?= $row['stok']; ?>, <?= $row['harga']; ?>, '<?= htmlspecialchars($row['foto']); ?>')">
-                                                        Lihat Data
-                                                    </button>
+                                                    <div class="btn-group-action">
+                                                        <button class="btn btn-warning btn-sm" onclick="editData(<?= $row['id']; ?>, '<?= htmlspecialchars($row['nama_barang']); ?>', '<?= htmlspecialchars($row['kategori']); ?>', <?= $row['stok']; ?>, <?= $row['harga']; ?>, '<?= htmlspecialchars($row['foto']); ?>')">Edit Data</button>
+                                                        <a href="#" class="btn btn-danger btn-sm" onclick="confirmDelete(<?= $row['id']; ?>)">Delete Data</a>
+                                                        <button type="button" class="btn btn-primary btn-sm" onclick="lihatData('<?= htmlspecialchars($row['nama_barang']); ?>', '<?= htmlspecialchars($row['kategori']); ?>', <?= $row['stok']; ?>, <?= $row['harga']; ?>, '<?= htmlspecialchars($row['foto']); ?>')">
+                                                            Lihat Data
+                                                        </button>
+                                                    </div>
                                                 </td>
 
                                             </tr>

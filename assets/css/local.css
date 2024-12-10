@@ -8,35 +8,42 @@ body{
 
 /* Sidebar Menu Styling */
 .sb-nav-fixed #layoutSidenav #layoutSidenav_nav .sb-sidenav .sb-sidenav-menu {
-  overflow-y: auto; /* Scroll hanya secara vertikal */
-  overflow-x: hidden; /* Hindari overflow horizontal */
-  scrollbar-width: thin; /* Firefox scrollbar */
-  scrollbar-color: #6c757d #343a40; /* Firefox scrollbar */
+  overflow-y: auto; 
+  overflow-x: hidden; 
+  scrollbar-width: thin; 
+  scrollbar-color: #6c757d #343a40; 
+
 }
 
-/* Custom Scrollbar for Webkit Browsers */
 .sb-nav-fixed #layoutSidenav #layoutSidenav_nav .sb-sidenav .sb-sidenav-menu::-webkit-scrollbar {
-  width: 8px;
+  width: 8px; 
 }
 
 .sb-nav-fixed #layoutSidenav #layoutSidenav_nav .sb-sidenav .sb-sidenav-menu::-webkit-scrollbar-track {
   background: #343a40;
-  border-radius: 10px;
+  border-radius: 10px; 
 }
 
 .sb-nav-fixed #layoutSidenav #layoutSidenav_nav .sb-sidenav .sb-sidenav-menu::-webkit-scrollbar-thumb {
   background-color: #6c757d;
-  border-radius: 10px;
+  border-radius: 10px; 
 }
 
-/* Global Box Sizing */
-* {
-  box-sizing: border-box;
+.sb-nav-fixed #layoutSidenav #layoutSidenav_nav .sb-sidenav .sb-sidenav-menu {
+  scrollbar-width: thin; 
+  scrollbar-color: #6c757d #343a40;
 }
-
-/* Sidebar Navigation Links */
 .sb-sidenav .nav-link {
   margin: 0;
   padding: 0.75rem 1rem;
-  white-space: nowrap; /* Hindari teks melipat */
+  white-space: nowrap; 
+}
+.btn-group-action button,
+.btn-group-action a {
+    margin-right: 8px; /* Jarak antar tombol */
+}
+
+.btn-group-action button:last-child,
+.btn-group-action a:last-child {
+    margin-right: 0; /* Menghilangkan margin pada tombol terakhir */
 }
